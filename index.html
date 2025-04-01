@@ -3,14 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bodygraph Human Design</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Bodygraph</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        #bodygraph-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        #bodygraph-svg {
+            width: 300px;
+            height: 500px;
+            background: #fff;
+            border: 2px solid #000;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bienvenue sur votre Bodygraph</h1>
-    <div id="bodygraph">
-        <!-- Ici s'affichera le Bodygraph -->
+
+    <h1>Bienvenue sur le Bodygraph</h1>
+
+    <div>
+        <input type="date" id="birthDate" placeholder="Date de naissance">
+        <input type="time" id="birthTime" placeholder="Heure de naissance">
+        <button id="generateBodygraph">Générer le Bodygraph</button>
     </div>
-    <script src="script.js"></script>
+
+    <div id="bodygraph-container">
+        <svg id="bodygraph-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500">
+            <!-- Centres énergétiques -->
+            <circle cx="150" cy="50" r="20" fill="red" />
+            <circle cx="150" cy="130" r="25" fill="blue" />
+            <circle cx="100" cy="200" r="30" fill="green" />
+            <circle cx="200" cy="200" r="30" fill="yellow" />
+            <circle cx="150" cy="270" r="35" fill="purple" />
+            <circle cx="150" cy="350" r="40" fill="orange" />
+            <circle cx="100" cy="420" r="25" fill="pink" />
+            <circle cx="200" cy="420" r="25" fill="brown" />
+            <circle cx="150" cy="480" r="20" fill="gray" />
+        </svg>
+    </div>
+
+    <script>
+        document.getElementById('generateBodygraph').addEventListener('click', function () {
+            const birthDate = document.getElementById('birthDate').value;
+            const birthTime = document.getElementById('birthTime').value;
+
+            if (birthDate && birthTime) {
+                alert("Bodygraph généré avec succès !");
+                // Ici, tu peux ajouter des actions pour générer le Bodygraph basé sur les données
+                // Pour l'instant, le Bodygraph est statique
+            } else {
+                alert("Merci d'entrer une date et une heure valides.");
+            }
+        });
+    </script>
+
 </body>
 </html>
